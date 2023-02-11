@@ -38,6 +38,9 @@ export const updatePlayer = (user, updatedPlayer) => {
 export const deletePlayer = (user, playerId) => {
     return axios({
         url: `${apiUrl}/players`,
-        // not done
+        method: 'DELETE',
+        headers: {
+            Authorization: `Token token=${user.token}`,
+        },
     })
 }
