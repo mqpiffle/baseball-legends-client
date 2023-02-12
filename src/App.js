@@ -12,6 +12,8 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import CreatePlayer from './components/players/CreatePlayer'
+import ShowPlayer from './components/players/ShowPlayer'
 
 const App = () => {
     const [user, setUser] = useState(null)
@@ -89,6 +91,26 @@ const App = () => {
                                 user={user}
                             />
                         </RequireAuth>
+                    }
+                />
+                <Route
+                    path='/create-player'
+                    element={
+                        <RequireAuth user={user}>
+                            <CreatePlayer
+                                msgAlert={msgAlert}
+                                user={user}
+                            />
+                        </RequireAuth>
+                    }
+                />
+                <Route
+                    path='players/:id'
+                    element={
+                        <ShowPlayer
+                            user={user}
+                            msgAlert={msgAlert}
+                        />
                     }
                 />
             </Routes>

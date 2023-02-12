@@ -69,7 +69,7 @@ const PlayersIndex = ({ msgAlert }) => {
             key={player._id}
             style={cardStyle}
         >
-            <Card.Header style={{ flexGrow: '1' }}>
+            <Card.Header>
                 <h4>~{player.name}~</h4>
                 {player.baseballHoF ? (
                     <h5>
@@ -77,30 +77,19 @@ const PlayersIndex = ({ msgAlert }) => {
                     </h5>
                 ) : null}
             </Card.Header>
-            <Card.Body style={cardBodyStyle}>
+            <Card.Body>
                 <Card.Text>
-                    <div style={cardBodyStyle}>
-                        {player.leagues.map(league => (
-                            <span>{league}</span>
-                        ))}
-                    </div>
-                    <div style={posTextStyle}>
-                        <p>Positions:</p>
-                        {player.positions.map(pos => (
-                            <span>{pos}</span>
-                        ))}
-                    </div>
                     <Link
-                        to={`/players/${player.id}`}
+                        to={`/players/${player._id}`}
                         className='btn btn-info'
                     >
                         View {player.name}
                     </Link>
                 </Card.Text>
-                {player.owner ? (
-                    <Card.Footer>owner: {player.owner.email}</Card.Footer>
-                ) : null}
             </Card.Body>
+            {player.owner ? (
+                <Card.Footer>owner: {player.owner.email}</Card.Footer>
+            ) : null}
         </Card>
     ))
 

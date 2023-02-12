@@ -25,7 +25,7 @@ export const createPlayer = (user, newPlayer) => {
 // also need auth token to update a player
 export const updatePlayer = (user, updatedPlayer) => {
     return axios({
-        url: `${apiUrl}/players/${updatedPlayer.id}`,
+        url: `${apiUrl}/players/${updatedPlayer._id}`,
         method: 'PATCH',
         headers: {
             Authorization: `Token token=${user.token}`,
@@ -37,7 +37,7 @@ export const updatePlayer = (user, updatedPlayer) => {
 // DELETE -> delete
 export const deletePlayer = (user, playerId) => {
     return axios({
-        url: `${apiUrl}/players`,
+        url: `${apiUrl}/players/${playerId}`,
         method: 'DELETE',
         headers: {
             Authorization: `Token token=${user.token}`,
