@@ -66,7 +66,7 @@ const PlayersIndex = ({ msgAlert }) => {
 
     const playerCards = players.map(player => (
         <Card
-            key={player._id}
+            key={player.id}
             style={cardStyle}
         >
             <Card.Header>
@@ -80,7 +80,7 @@ const PlayersIndex = ({ msgAlert }) => {
             <Card.Body>
                 <Card.Text>
                     <Link
-                        to={`/players/${player._id}`}
+                        to={`/players/${player.id}`}
                         className='btn btn-info'
                     >
                         View {player.name}
@@ -94,11 +94,19 @@ const PlayersIndex = ({ msgAlert }) => {
     ))
 
     return (
-        <div
-            className='container mt-5'
-            style={cardContainerStyle}
-        >
-            {playerCards}
+        <div className='container'>
+            <div
+                className='container mt-5'
+                style={cardContainerStyle}
+            >
+                {playerCards}
+            </div>
+            <Link
+                to={`/create-player`}
+                className='btn btn-info m-5'
+            >
+                Create New Player
+            </Link>
         </div>
     )
 }

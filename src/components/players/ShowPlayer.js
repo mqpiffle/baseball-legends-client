@@ -34,7 +34,7 @@ const ShowPlayer = ({ user, msgAlert }) => {
     const [editModalShow, setEditModalShow] = useState(false)
     const [updated, setUpdated] = useState(false)
 
-    const { id } = useParams
+    const { id } = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const ShowPlayer = ({ user, msgAlert }) => {
     }, [updated])
 
     const removePlayer = () => {
-        deletePlayer(user, player._id)
+        deletePlayer(user, player.id)
             .then(() => {
                 msgAlert({
                     heading: 'Success',
@@ -102,9 +102,7 @@ const ShowPlayer = ({ user, msgAlert }) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        {player.owner &&
-                        user &&
-                        player.owner._id === user._id ? (
+                        {player.owner && user && player.owner.id === user.id ? (
                             <>
                                 <Button
                                     className='m-2'

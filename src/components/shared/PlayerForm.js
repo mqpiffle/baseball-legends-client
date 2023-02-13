@@ -1,15 +1,15 @@
 import { Form, Button, Container } from 'react-bootstrap'
 
-const PetForm = ({ playerInfo, handleChange, handleSubmit, heading }) => {
+const PlayerForm = ({ playerInfo, handleChange, handleSubmit, heading }) => {
     return (
         <Container>
             <h3>{heading}</h3>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className='m-2'>
-                    <Form.Label></Form.Label>
+                    <Form.Label>Player Name</Form.Label>
                     <Form.Control
-                        placeholder=''
-                        nanme='name'
+                        placeholder='Enter player name'
+                        name='name'
                         id='name'
                         value={playerInfo.name}
                         onChange={handleChange}
@@ -64,15 +64,16 @@ const PetForm = ({ playerInfo, handleChange, handleSubmit, heading }) => {
                         onChange={handleChange}
                     />
                 </Form.Group>
+
+                <Button
+                    className='m-2'
+                    type='submit'
+                >
+                    Submit
+                </Button>
             </Form>
-            <Button
-                className='m-2'
-                type='submit'
-            >
-                Submit
-            </Button>
         </Container>
     )
 }
 
-export default PetForm
+export default PlayerForm

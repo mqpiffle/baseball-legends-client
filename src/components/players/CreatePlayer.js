@@ -20,9 +20,7 @@ const CreatePlayer = ({ user, msgAlert }) => {
             const updatedName = e.target.name
             let updatedValue = e.target.value
 
-            if (e.target.type === 'number') {
-                updatedValue = parseInt(e.target.value)
-            }
+            console.log('this is the input type: ', e.target.type)
 
             if (updatedName === 'baseballHoF' && e.target.checked) {
                 updatedValue = true
@@ -33,6 +31,8 @@ const CreatePlayer = ({ user, msgAlert }) => {
             const updatedPlayer = {
                 [updatedName]: updatedValue,
             }
+
+            console.log('the player: ', updatedPlayer)
 
             return {
                 ...prevPlayer,
