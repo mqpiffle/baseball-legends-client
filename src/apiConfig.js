@@ -1,14 +1,14 @@
 let apiUrl
 const apiUrls = {
     // YOU MUST CHANGE PRODUCTION URL WHEN DEPLOYING
-	production: '<replace_with_deployed_api_url>',
-	development: 'http://localhost:8000',
+    production: 'https://baseball-legends.fly.dev',
+    development: 'http://localhost:8000',
 }
 
 if (window.location.hostname === 'localhost') {
-	apiUrl = apiUrls.development
+    apiUrl = apiUrls.development
 } else {
-	apiUrl = apiUrls.production
+    apiUrl = apiUrls.production
 }
 
 export default apiUrl
